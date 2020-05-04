@@ -14,15 +14,27 @@ yarn add simple-slack-notifier
 ## Usage
 ### Javascript
 ```javascript
+const SlackAPI = require('simple-slack-notifier');
+
+const slackApi = new SlackAPI({ token: '', deploymentChannel: 'releases'});
+slackApi.deploymentApi.sendDeploymentStartMessage();
 ```
-```sh
-Output should be 'Boys'
-```
+
 ### TypeScript
 ```typescript
+import { SlackAPI } from 'simple-slack-notifier';
+
+const slackApi = new SlackAPI({ token: '', deploymentChannel: 'releases' });
+slackApi.deploymentApi.sendDeploymentStartMessage();
+
 ```
 
 ## Test 
 ```sh
 npm run test
+```
+
+## Coverage
+```sh
+npm run coverage
 ```

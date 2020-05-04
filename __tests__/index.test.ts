@@ -1,9 +1,10 @@
+const {SlackAPI} = require('../lib/index');
 
-const index = require("../lib/index");
-
-describe("Test", () => {
-  it("should be true", () => {
-    expect(index.test()).toEqual("Test");
-    expect(true).toBeTruthy();
-  });
+describe('Test', () => {
+    it('should be true', () => {
+        const slackAPI = new SlackAPI({
+            slackToken: '',
+            deploymentChannel: 'releases'
+        });
+    });
 })
