@@ -1,0 +1,33 @@
+{
+  "name": "simple-slack-notifier",
+  "version": "0.0.1",
+  "description": "Send simple messages to Slack",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "coverage": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/julum/simple-slack-notifier.git"
+  },
+  "author": "Jan Lumbeck <develop@diegodev.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/julum/simple-slack-notifier/issues"
+  },
+  "homepage": "https://github.com/julum/simple-slack-notifier",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "coveralls": "^3.1.0",
+    "jest": "^25.5.4",
+    "mocha": "^7.1.2",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@slack/events-api": "^2.3.2",
+    "@slack/web-api": "^5.8.1"
+  }
+}
