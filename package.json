@@ -1,6 +1,6 @@
 {
   "name": "simple-slack-notifier",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Send simple messages to Slack",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
