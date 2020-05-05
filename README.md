@@ -14,20 +14,47 @@ yarn add simple-slack-notifier
 ## Usage
 ### Javascript
 ```javascript
-const SlackAPI = require('simple-slack-notifier');
+const GitLabCISlackAPI = require('simple-slack-notifier');
 
-const slackApi = new SlackAPI({ token: '', deploymentChannel: 'releases'});
-slackApi.deploymentApi.sendDeploymentStartMessage();
+const commitId = 'ba7b06204dfc05e140fe17e1c555169e0a1ffa30';
+const token = '<Your Slack Application Token>';
+const slack = new GitLabCISlackAPI();
+slack.webClient(new WebClient(token)).gitlabOptions({
+    commitId: commitId,
+    projectName: '<GitLab Group>/<GitLab Project Name>',
+    jobId: '123456789',
+    gitRef: 'master',
+    author: 'Super Developer',
+}).build();
+        
+slack.sendDeploymentStartedMessage();
+slack.sendDeploymentSuccessfulMessage();
+slack.sendDeploymentFailedMessage();
 ```
 
 ### TypeScript
 ```typescript
-import { SlackAPI } from 'simple-slack-notifier';
+import { GitLabCISlackAPI } from 'simple-slack-notifier';
+import { WebClient } from '@slack/web-api';
 
-const slackApi = new SlackAPI({ token: '', deploymentChannel: 'releases' });
-slackApi.deploymentApi.sendDeploymentStartMessage();
-
+const commitId = '<Commit Hash>';
+const token = '<Your Slack Application Token>';
+const slack = new GitLabCISlackAPI();
+slack.webClient(new WebClient(token)).gitlabOptions({
+    commitId: commitId,
+    projectName: '<GitLab Group>/<GitLab Project Name>',
+    jobId: '123456789',
+    gitRef: 'master',
+    author: 'Super Developer',
+})
+    .channel('myslackchannel').build();
+        
+slack.sendDeploymentStartedMessage();
+slack.sendDeploymentSuccessfulMessage();
+slack.sendDeploymentFailedMessage();
 ```
+
+This will send three message your Slack Channel named `myslackchannel`.
 
 ## Test 
 ```sh
